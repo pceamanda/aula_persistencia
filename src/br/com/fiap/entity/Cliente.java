@@ -52,4 +52,35 @@ public class Cliente {
         this.pedidos = pedidos;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Cliente cliente = (Cliente) o;
+
+        if (id != null ? !id.equals(cliente.id) : cliente.id != null) return false;
+        if (nome != null ? !nome.equals(cliente.nome) : cliente.nome != null) return false;
+        if (email != null ? !email.equals(cliente.email) : cliente.email != null) return false;
+        return pedidos != null ? pedidos.equals(cliente.pedidos) : cliente.pedidos == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (nome != null ? nome.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (pedidos != null ? pedidos.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", pedidos=" + pedidos +
+                '}';
+    }
 }

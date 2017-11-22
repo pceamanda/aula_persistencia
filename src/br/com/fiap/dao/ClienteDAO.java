@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface ClienteDAO {
 
-    List<Cliente> getClientes();
-    void inserirCliente(Cliente cliente);
+    List<Cliente> getClientes() throws Exception;
+    Cliente getCliente(Integer id) throws Exception;
+    Cliente inserirCliente(Cliente cliente) throws Exception;
 
 }
